@@ -2,6 +2,9 @@ const lattice = document.querySelector("#lattice").getContext("2d");
 const movesLabel = document.querySelector("#moves");
 const restartButton = document.querySelector("#restart");
 
+const bacteriaAudio = new Audio("freesound_community-water-drops-6223.mp3");
+const failAudio = new Audio("soundreality-metallic-swell-132658.mp3");
+
 const camera = { x: window.innerWidth / 2, y: window.innerHeight / 2, width: null, height: null };
 let zoom = 50;
 
@@ -99,7 +102,9 @@ function click(x, y) {
             tweens.push({ bactId: bacteria.length - 1, from: { x: x, y: y }, to: { x: x + 1, y: y }, type: "position", duration: 150, bezier: [0, 0, 1, 1] });
             bacteria.push({ x: x, y: y, color: {r: 0, g: 200, b: 100} });
             tweens.push({ bactId: bacteria.length - 1, from: { x: x, y: y }, to: { x: x, y: y - 1 }, type: "position", duration: 150, bezier: [0, 0, 1, 1] });
+            bacteriaAudio.play();
         } else {
+            failAudio.play();
             if (foundRight > -1) {
                 tweens.push({ bactId: foundRight, from: { r: 0, g: 200, b: 100 }, to: { r: 255, g: 0, b: 0 }, type: "color", duration: 300, bezier: [0, 1, 1, 0] });
                 tweens.push({ bactId: foundRight, from: { x: x + 1, y: y }, to: { x: x + 1.3, y: y }, type: "position", duration: 300, bezier: [0, 1, 1, 0] });
