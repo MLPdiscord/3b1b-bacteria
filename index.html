@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .menu {
+            background-color: rgba(200, 255, 233, 0.438);
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #moves {
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: x-large;
+        }
+
+        #restart {
+            background-color: rgb(39, 65, 54);
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: large;
+            transition: 0.15s ease-in-out;
+        }
+
+        #restart:hover {
+            background-color: rgb(22, 37, 31);
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <p id="moves">Moves: 0</p>
+        <button id="restart">Restart</button>
+    </div>
+    <canvas id="lattice" width></canvas>
+    <script src="index.js"></script>
+</body>
+</html>
